@@ -20,66 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6565722-ab98-4273-b387-0adccd0f378d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/JumboDB.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dashboard.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/global/LeftOperationBar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/pages/Connection.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/pages/SampleData.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/pages/Welcome.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/react-app-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reportWebVitals.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/setupTests.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/actionTypes.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/connectionReducers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/displayActionCreators.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/displayReducers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/sampleDataReducers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jumboDB-core/cli/config.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jumboDB-core/cli/config.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jumboDB-core/cli/main" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jumboDB-core/cli/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/persistence/inmemory_hashmap.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/persistence/persistence_interface.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/server/http_server.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/service/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmd/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../design/V1.0.drawio" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jumbodb/cli/config.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jumbodb/cli/config.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jumbodb/cli/main.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jumbodb/src/persistence/inmemory_hashmap.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jumbodb/src/server/server.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../jumbodb/src/service/service.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../protocol/payload.go" beforeDir="false" afterPath="$PROJECT_DIR$/../jumboDB-core/src/protocol/payload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../protocol/payload_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/../jumboDB-core/src/protocol/payload_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../design/V0.1.drawio" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../design/V0.1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1634067928290</updated>
       <workItem from="1634067930320" duration="3994000" />
-      <workItem from="1634150314563" duration="18034000" />
+      <workItem from="1634150314563" duration="18880000" />
     </task>
     <servers />
   </component>
