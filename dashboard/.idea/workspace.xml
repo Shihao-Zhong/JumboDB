@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d6565722-ab98-4273-b387-0adccd0f378d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/JumboDB.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dashboard.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/global/LeftOperationBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/Connection.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/SampleData.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pages/Welcome.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/react-app-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reportWebVitals.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/setupTests.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/actionTypes.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/connectionReducers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/displayActionCreators.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/displayReducers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/sampleDataReducers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/cli/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/cli/config.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/cli/main" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/cli/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/persistence/inmemory_hashmap.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/persistence/persistence_interface.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/server/http_server.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/service/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmd/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design/V1.0.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jumbodb/cli/config.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jumbodb/cli/config.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jumbodb/cli/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jumbodb/src/persistence/inmemory_hashmap.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jumbodb/src/server/server.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jumbodb/src/service/service.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocol/payload.go" beforeDir="false" afterPath="$PROJECT_DIR$/../jumboDB-core/src/protocol/payload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocol/payload_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/../jumboDB-core/src/protocol/payload_test.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1zQ6NzRawL1iBpysd2XHLQZd7VQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/pages" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/pages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d6565722-ab98-4273-b387-0adccd0f378d" name="Default Changelist" comment="" />
+      <created>1634067928290</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1634067928290</updated>
+      <workItem from="1634067930320" duration="3994000" />
+      <workItem from="1634150314563" duration="18034000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1634070547294">
+      <screen x="0" y="23" width="1680" height="971" />
+    </state>
+    <state width="500" height="445" key="SwitcherDM/0.23.1680.971@0.23.1680.971" timestamp="1634070547294" />
+  </component>
+</project>

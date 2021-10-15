@@ -1,6 +1,0 @@
-# This is JumboDB config.
-
-title = "JumboDB config"
-
-[connection]
-port = 38421
