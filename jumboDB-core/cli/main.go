@@ -1,9 +1,9 @@
 package main
 
 import (
+	"JumboDB/jumboDB-core/src/config"
 	"JumboDB/jumbodb-core/src/server"
 	"flag"
-	"github.com/BurntSushi/toml"
 	"log"
 )
 
@@ -20,11 +20,8 @@ func init() {
 func main() {
 	log.Println("Welcome to JumboDB")
 	flag.Parse()
-	var conf tomlConfig
-	if _, err := toml.DecodeFile(configPath, &conf); err != nil {
-		log.Fatalf("Unable to parse JumboDB config in path %s", configPath)
-	}
-
-	server.StartListening(conf.Connection.Port)
+	config.Path = configPath
+	server := server.NewHttpServer()
+	server.StartListening()
 
 }

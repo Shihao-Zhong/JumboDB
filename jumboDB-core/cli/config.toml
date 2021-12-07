@@ -4,3 +4,12 @@ title = "JumboDB config"
 
 [connection]
 port = 38421
+
+[storage]
+bloomFilterFalsePositiveRate = 0.03
+memoryTableSize = 3
+skipListLevel = 10
+SSTableIndexLocation = "ssTableIndex.index"
+WALLocation = "wal.jumbo"
+LSMIndexLocation = "lsm.index"
+engine = "lsm"
