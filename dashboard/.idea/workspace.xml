@@ -20,9 +20,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6565722-ab98-4273-b387-0adccd0f378d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../design/V0.1.drawio" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../design/V0.1.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../design/V0.2.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../design/V0.3.drawio" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/cli/[0]-[0].jumbo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/cli/lsm.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/cli/ssTableIndex.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/cli/wal.jumbo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/config/config.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/data_structure/file_util.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/data_structure/level_sort_string_table.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/data_structure/level_sort_string_table_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/data_structure/memtable.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/data_structure/operation.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/data_structure/skip_list.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/data_structure/skip_list_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../jumboDB-core/src/persistence/lsm_tree.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design/V0.1.md" beforeDir="false" afterPath="$PROJECT_DIR$/../design/V0.1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../design/V0.2.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../design/V0.2.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/../go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/../go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jumboDB-core/cli/config.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jumboDB-core/cli/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/../jumboDB-core/cli/config.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jumboDB-core/cli/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/../jumboDB-core/cli/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jumboDB-core/src/persistence/inmemory_hashmap.go" beforeDir="false" afterPath="$PROJECT_DIR$/../jumboDB-core/src/persistence/inmemory_hashmap.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jumboDB-core/src/persistence/persistence_interface.go" beforeDir="false" afterPath="$PROJECT_DIR$/../jumboDB-core/src/persistence/persistence_interface.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jumboDB-core/src/protocol/payload.go" beforeDir="false" afterPath="$PROJECT_DIR$/../jumboDB-core/src/protocol/payload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jumboDB-core/src/server/http_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/../jumboDB-core/src/server/http_server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jumboDB-core/src/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/../jumboDB-core/src/service/service.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +92,9 @@
       <option name="presentableId" value="Default" />
       <updated>1634067928290</updated>
       <workItem from="1634067930320" duration="3994000" />
-      <workItem from="1634150314563" duration="18880000" />
+      <workItem from="1634150314563" duration="19251000" />
+      <workItem from="1634752043843" duration="320000" />
+      <workItem from="1636988063798" duration="532000" />
     </task>
     <servers />
   </component>
