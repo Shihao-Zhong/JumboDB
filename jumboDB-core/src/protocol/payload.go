@@ -33,3 +33,18 @@ func DecodePayload(payloadJson []byte) Payload {
 	} 
 	return payload
 }
+
+func DistinctMerge(payload1 []Payload, payload2 []Payload) []Payload {
+	distinctMap := make(map[string]bool)
+	for _, payload := range payload1 {
+		distinctMap[payload.Key] = true
+	}
+	for _, payload := range payload2 {
+		if _, ok := distinctMap[payload.Key]; ok {
+			continue
+		} else {
+			payload1 = append(payload1, payload)
+		}
+	}
+	return payload1
+}

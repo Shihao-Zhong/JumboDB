@@ -1,8 +1,6 @@
 package persistence
 
-import (
-	"JumboDB/jumboDB-core/src/protocol"
-)
+import "JumboDB/jumboDB-core/src/protocol"
 
 type Storage interface {
 	Get(key string) string

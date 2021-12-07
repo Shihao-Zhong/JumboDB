@@ -34,7 +34,7 @@ func(i InMemoryHashMap) Put(key string, value string) {
 	return
 }
 
-func(i InMemoryHashMap) GetAll() []protocol.Payload{
+func(i InMemoryHashMap) GetAll() []protocol.Payload {
 	var data []protocol.Payload
 	for k,v := range i.dataStorage {
 		data = append(data, *protocol.NewPayload(k, v))

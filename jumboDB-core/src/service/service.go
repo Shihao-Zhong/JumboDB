@@ -5,22 +5,32 @@ import (
 	"JumboDB/jumboDB-core/src/protocol"
 )
 
-var dataStorage = persistence.NewInMemoryHashMap()
-
-
-func GetAllElements() []protocol.Payload {
-	return dataStorage.GetAll()
+type Service struct {
+	dataStorage persistence.Storage
 }
 
-func GetOneElement(key string) string {
-	return dataStorage.Get(key)
+func (i *Service)GetAllElements() []protocol.Payload {
+	return i.dataStorage.GetAll()
 }
 
-func PutOneElement(key string, value string) {
-	dataStorage.Put(key, value)
+func (i *Service) GetOneElement(key string) string {
+	return i.dataStorage.Get(key)
 }
 
-func DelOneElement(key string) {
-	dataStorage.Del(key)
+func (i *Service) PutOneElement(key string, value string) {
+	i.dataStorage.Put(key, value)
+}
+
+func (i *Service) DelOneElement(key string) {
+	i.dataStorage.Del(key)
+}
+
+func NewService(serviceType string) *Service {
+	service := new(Service)
+	switch serviceType {
+	case "lsm": service.dataStorage = persistence.NewLSMTree()
+	case "hashmap": service.dataStorage = persistence.NewInMemoryHashMap()
+	}
+	return service
 }
 
