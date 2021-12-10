@@ -7,4 +7,5 @@ type Storage interface {
 	Put(key string, value string) 
 	GetAll() []protocol.Payload
 	Del(key string)
+	Transaction(operations []map[string]string) error
 }

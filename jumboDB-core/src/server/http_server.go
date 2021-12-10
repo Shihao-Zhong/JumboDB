@@ -36,15 +36,22 @@ func (i *HttpServer) StartListening() {
 	server.GET("/resources/:key", i.getResource)
 	server.DELETE("/resources/:key", i.delResource)
 
+	server.POST("/resources/transactions", i.createTransaction)
+
 	server.Run(path)
 }
 
 func (i *HttpServer) getAllResources(c *gin.Context) {
 	var allData = i.service.GetAllElements()
-	c.JSON(200, gin.H{
-		"data": allData,
-	})
-
+	if len(allData) == 0 {
+		c.JSON(200, gin.H{
+			"data": []string{},
+		})
+	} else {
+		c.JSON(200, gin.H{
+			"data": allData,
+		})
+	}
 }
 
 func (i *HttpServer) createResource(c *gin.Context) {
@@ -77,4 +84,19 @@ func (i *HttpServer) healthCheck(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"status": "OK",
 	})
+}
+
+func (i *HttpServer) createTransaction (c *gin.Context) {
+	json := make([]map[string]string, 0)
+	c.BindJSON(&json)
+	err := i.service.Transaction(json)
+	if err != nil {
+		c.JSON(500, gin.H{
+			"error": err,
+		})
+	} else {
+		c.JSON(200, gin.H{
+			"status": "success",
+		})
+	}
 }

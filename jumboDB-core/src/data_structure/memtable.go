@@ -21,7 +21,7 @@ func NewEmptyMemtable(config *config.TomlConfig) *Memtable {
 	memtable := new(Memtable)
 	memtable.Data = NewSkipList(config.Storage.SkipListLevel)
 	memtable.BloomFilter = bloom.NewWithEstimates(uint(config.Storage.MemoryTableSize), config.Storage.BloomFilterFalsePositiveRate)
-	memtable.WALWriter = openFileWithWriter(config.Storage.WALLocation)
+	memtable.WALWriter = OpenFileWithWriter(config.Storage.WALLocation)
 	memtable.Size = 0
 	return memtable
 }
@@ -35,7 +35,7 @@ func GetMemtable(config *config.TomlConfig, currentIndex int) *Memtable {
 }
 
 func (i *Memtable) WriteWAL(opt *Operation) int {
-	log.Printf("Start writing WAL for operation [%s]", opt.toString())
+	log.Printf("Start writing WAL for operation [%s] with size [%d]", opt.toString(), i.Size)
 	n, err := i.WALWriter.Write(opt.OperationToJson())
 	i.WALWriter.WriteString("\n")
 	err = i.WALWriter.Flush()
@@ -50,16 +50,19 @@ func (i *Memtable) WriteDataToDisk(path string) int {
 	return i.Data.toFile(path)
 }
 
-func (i *Memtable) Put(key string, value string) {
-	operation := NewOperation(key, value, PUT)
+func (i *Memtable) Put(key string, value string, transactionId int) {
+	operation := NewOperation(key, value, PUT, transactionId)
 	i.WriteWAL(operation)
 	i.Data.Put(operation)
 	i.BloomFilter.Add([]byte(key))
 }
 
-func (i *Memtable) Get(key string) (*Operation, error){
+func (i *Memtable) Get(key string, transactionId int) (*Operation, error){
 	if i.BloomFilter.Test([]byte(key)) {
 		opt, err := i.Data.Get(key)
+		if opt.TransactionId > transactionId {
+			return nil, nil
+		}
 		if err != nil {
 			return nil, errors.New("error in get from memtable")
 		}
@@ -77,7 +80,7 @@ func (i *Memtable) Apply(opt *Operation) {
 // when restart db, readthe wal back from disk
 func (i * Memtable) ReadFromWAL(walPath string, currentIndex int) {
 	log.Printf("read wal from [%s]", walPath)
-	scanner := openFileWithReader(walPath)
+	scanner := OpenFileWithReader(walPath)
 	// skip the wal that already in sstable
 	for idx := 0; idx < currentIndex; idx++ {
 		scanner.ReadString('\n')
@@ -102,6 +105,7 @@ func (i *Memtable) GetAll() []protocol.Payload {
 	return i.Data.GetAll()
 }
 
-func (i *Memtable) Del(key string) {
-	i.Data.Del(key)
+func (i *Memtable) Del(key string, transactionId int) {
+	i.Data.Del(key, transactionId)
+	i.WriteWAL(NewOperation(key, "", DEL, transactionId))
 }

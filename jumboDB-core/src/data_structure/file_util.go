@@ -13,7 +13,7 @@ func FileIsExist(filename string) bool {
 	return true
 }
 
-func openFileWithWriter(filename string) *bufio.Writer {
+func OpenFileWithWriter(filename string) *bufio.Writer {
 	log.Printf("open writer in [%s]", filename)
 	var f *os.File
 	if FileIsExist(filename) {
@@ -24,7 +24,7 @@ func openFileWithWriter(filename string) *bufio.Writer {
 	return bufio.NewWriter(f)
 }
 
-func openFileWithReader(filename string) *bufio.Reader {
+func OpenFileWithReader(filename string) *bufio.Reader {
 	var f *os.File
 	if FileIsExist(filename) {
 		f, _ = os.OpenFile(filename, os.O_RDONLY, 0666)
@@ -34,6 +34,16 @@ func openFileWithReader(filename string) *bufio.Reader {
 	return bufio.NewReader(f)
 }
 
-func openFileWithReadWriter(fileName string) *bufio.ReadWriter {
-	return bufio.NewReadWriter(openFileWithReader(fileName), openFileWithWriter(fileName))
+func OpenFileWithReadWriter(fileName string) *bufio.ReadWriter {
+	return bufio.NewReadWriter(OpenFileWithReader(fileName), OpenFileWithWriter(fileName))
+}
+
+func RemoveTables(tables []*Table) {
+	for _, table := range tables {
+		log.Printf("deleting file [%s]", table.FilePath)
+		err := os.Remove(table.FilePath)
+		if err != nil {
+			log.Printf("Error in remove tables [%s]", err)
+		}
+	}
 }

@@ -1,6 +1,7 @@
 package data_structure
 
 import (
+	"JumboDB/jumboDB-core/src/config"
 	"JumboDB/jumboDB-core/src/protocol"
 	"encoding/json"
 	"errors"
@@ -27,6 +28,7 @@ type LevelSSTable struct {
 	Data [][] *Table `json:"data"`
 	Sequence int     `json:"sequence"`
 	Path     string `json:"-"`
+	isCompacting bool `json:"-"`
 	
 }
 
@@ -47,6 +49,7 @@ func NewEmptyLevelSSTable(path string) *LevelSSTable {
 	levelSSTable.Data = make([][]*Table, 1)
 	levelSSTable.Sequence = 0
 	levelSSTable.Path = path
+	levelSSTable.isCompacting = false
 	levelSSTable.ConfigToJsonFile()
 	return levelSSTable
 }
@@ -83,18 +86,47 @@ func ReadSSTableFromJsonFile(path string) *LevelSSTable {
 	return levelSSTable
 }
 
-func (i *LevelSSTable) AddNewMemtable(memtable *Memtable) int {
+func (i *LevelSSTable) AddNewMemtable(memtable *Memtable, config *config.TomlConfig) int {
 	fileName := i.NewFileName(0)
 	i.Data[0] = append([]*Table {NewTable(fileName, memtable.BloomFilter)}, i.Data[0]...)
+	if len(i.Data[0]) >= config.Storage.MajorCompactionFileSize {
+		go i.MajorCompaction(config)
+	}
 	i.ConfigToJsonFile()
 	return memtable.WriteDataToDisk(fileName)
 }
 
-func (i *LevelSSTable) majorCompaction(level int) {
+func (i *LevelSSTable) MajorCompaction(config *config.TomlConfig) {
+	log.Printf("Start major compaction")
+	if i.isCompacting {
+		return
+	}
 	// need to avoid
 	// first need to recrete file
 
+	for level, files := range i.Data {
+		var fileNumber = len(files)
+		if fileNumber < config.Storage.MajorCompactionFileSize {
+			continue
+		}
+		var tableList = make([]*Table, fileNumber)
+		tableList = files[len(files)-fileNumber:]
+		var fileName = i.NewFileName(level+1)
+		newTable := multiWayMerge(tableList, fileName, fileNumber, config)
 
+		newLevel := []*Table{newTable}
+		// if last level create new level else add to next level
+		if level == len(i.Data) - 1 {
+			i.Data = append(i.Data, newLevel)
+		} else {
+			i.Data[level+1] = append(newLevel, i.Data[level+1]...)
+		}
+		// remove all existing files in this level
+		i.Data[level] = files[:len(files)-fileNumber]
+		i.ConfigToJsonFile()
+		go RemoveTables(tableList)
+	}
+	i.isCompacting = false
 }
 
 func NewTable(filePath string, bloomFilterIndex *bloom.BloomFilter) *Table {
@@ -104,11 +136,11 @@ func NewTable(filePath string, bloomFilterIndex *bloom.BloomFilter) *Table {
 	return levelTable
 }
 
-func (i *LevelSSTable) Get(key string) (*Operation, error) {
+func (i *LevelSSTable) Get(key string, transactionId int) (*Operation, error) {
 	for _, level := range i.Data {
 		for _, table := range level {
 			if table.BloomFilterIndex.Test([]byte(key)) {
-				value, err := table.GetDataFromFile(key)
+				value, err := table.GetDataFromFile(key, transactionId)
 				if err != nil {
 					continue
 				} else {
@@ -134,7 +166,7 @@ func (i *LevelSSTable) GetAll() []protocol.Payload {
 						continue
 					} else {
 						if row.Operation != DEL {
-							result = append(result, *protocol.NewPayload(row.Key, row.Value))
+							result = append(result, *protocol.NewPayload(row.Key, row.Value, row.TransactionId))
 						}
 						distinct[row.Key] = true
 					}
@@ -145,8 +177,8 @@ func (i *LevelSSTable) GetAll() []protocol.Payload {
 	return result
 }
 
-func (i *Table) GetDataFromFile(key string)  (*Operation, error) {
-	scanner := openFileWithReader(i.FilePath)
+func (i *Table) GetDataFromFile(key string, transactionId int)  (*Operation, error) {
+	scanner := OpenFileWithReader(i.FilePath)
 	for {
 		line, err := scanner.ReadString('\n')
 		if err != nil {
@@ -157,7 +189,7 @@ func (i *Table) GetDataFromFile(key string)  (*Operation, error) {
 			}
 		}
 		opt := NewOperationFromJson(line)
-		if opt.Key == key {
+		if opt.Key == key && opt.TransactionId < transactionId{
 			return opt, nil
 		}
 	}
@@ -166,7 +198,7 @@ func (i *Table) GetDataFromFile(key string)  (*Operation, error) {
 func (i *Table) GetAllDataFromFile() ([]*Operation ,error) {
 	var result []*Operation
 	log.Printf("Getting data from file [%s]", i.FilePath)
-	scanner := openFileWithReader(i.FilePath)
+	scanner := OpenFileWithReader(i.FilePath)
 	for {
 		line, err := scanner.ReadString('\n')
 		if err != nil {

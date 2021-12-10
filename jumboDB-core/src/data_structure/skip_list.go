@@ -148,15 +148,15 @@ func (i *SkipList) GetAll() []protocol.Payload {
 	cur := i.Data.Next[0]
 	for cur.Type != TAIL {
 		if cur.Value.Operation != DEL {
-			data = append(data, *protocol.NewPayload(cur.Key, cur.Value.Value))
+			data = append(data, *protocol.NewPayload(cur.Key, cur.Value.Value, cur.Value.TransactionId))
 		}
 		cur = cur.Next[0]
 	}
 	return data
 }
 
-func (i *SkipList) Del(key string) {
-	delOperation := NewOperation(key, "", DEL)
+func (i *SkipList) Del(key string, transactionId int) {
+	delOperation := NewOperation(key, "", DEL, transactionId)
 	i.Put(delOperation)
 }
 
@@ -177,10 +177,10 @@ func NewSkipList(maxLevel int) *SkipList {
 	// need remove
 	skipList := new(SkipList)
 	skipList.Size = 0
-	head := NewSkipListNode("<HEAD>", NewOperation("", "", ""))
+	head := NewSkipListNode("<HEAD>", NewOperation("", "", "", 0))
 	head.Type = HEAD
 	head.Next = make([]*SkipListNode, maxLevel)
-	tail := NewSkipListNode("<TAIL>", NewOperation("", "", ""))
+	tail := NewSkipListNode("<TAIL>", NewOperation("", "", "", 0))
 	tail.Type = TAIL
 	tail.Next = make([]*SkipListNode, maxLevel)
 	for i := range head.Next {
@@ -192,16 +192,12 @@ func NewSkipList(maxLevel int) *SkipList {
 	return skipList
 }
 
-func (i *SkipList) lock() {
-	i.GlobalLock = true
-}
-
 func (i *SkipList) toFile(path string) int {
-	i.lock()
 	line := 0
-	writer := openFileWithWriter(path)
+	writer := OpenFileWithWriter(path)
 	cur := i.Data.Next[0]
 	for cur.Type != TAIL {
+		log.Printf("cur = [%s]", cur.Value.toString())
 		writer.Write(cur.Value.OperationToJson())
 		writer.WriteString("\n")
 		cur = cur.Next[0]

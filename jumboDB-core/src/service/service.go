@@ -25,6 +25,10 @@ func (i *Service) DelOneElement(key string) {
 	i.dataStorage.Del(key)
 }
 
+func (i *Service) Transaction(operations []map[string]string) error{
+	return i.dataStorage.Transaction(operations)
+}
+
 func NewService(serviceType string) *Service {
 	service := new(Service)
 	switch serviceType {

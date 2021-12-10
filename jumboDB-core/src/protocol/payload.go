@@ -8,12 +8,14 @@ import (
 type Payload struct {
 	Key 	string `json:"key"`
 	Value 	string `json:"value"`
+	TransactionId int `json:"transactionId"`
 }
 
-func NewPayload(key string, value string) *Payload {
+func NewPayload(key string, value string, transactionId int) *Payload {
 	payload := new(Payload)
 	payload.Key = key
 	payload.Value = value 
+	payload.TransactionId = transactionId
 	return payload
 }
 

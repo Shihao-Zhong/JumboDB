@@ -18,9 +18,7 @@ import * as actionTypes from "../../store/actionTypes";
 export default function SampleData() {
     const [putValue, setPutValue] = React.useState("");
     const [putKey, setPutKey] = React.useState("");
-
-
-
+    const [getKey, setGetKey] = React.useState("");
     const dispatch = useDispatch();
 
     const connectionState = useSelector((state: any) => state.connection);
@@ -36,12 +34,26 @@ export default function SampleData() {
         });
     }
 
+    const delData = (key: string) => {
+        axios.delete(`http://${connectionState.allHosts[connectionState.currentIndex]}/resources/${key}`
+        ).then((response) => {
+            alert(`successfully delete ${key} data into db`);
+            getAllData();
+        });
+    }
+
     const getAllData = () => {
         axios.get(`http://${connectionState.allHosts[connectionState.currentIndex]}/resources`).then((response: any) => {
             dispatch({
                 type: actionTypes.UPDATE_ALL_DATA,
                 payload: response.data.data
             });
+        });
+    }
+
+    const getData = () => {
+        axios.get(`http://${connectionState.allHosts[connectionState.currentIndex]}/resources/${getKey}`).then((response: any) => {
+            alert(`successfully query ${getKey} with data ${response.data.value || "NULL"}`)
         });
     }
 
@@ -72,12 +84,27 @@ export default function SampleData() {
                 </Stack>
             </Box>
             <Box sx={{p: 1}}>
+                <Stack direction="row" spacing={2}>
+                    <TextField
+                        fullWidth
+                        id="outlined-name"
+                        label="key"
+                        value={getKey}
+                        onChange={(event: any) => setGetKey(event.target.value)}
+                    />
+
+                    <Button variant="outlined" onClick={getData}>Query</Button>
+                </Stack>
+            </Box>
+            <Box sx={{p: 1}}>
                 <TableContainer component={Paper}>
-                    <Table sx={{minWidth: 650}} aria-label="dataetable">
+                    <Table sx={{minWidth: 650}} aria-label="datatable">
                         <TableHead>
                             <TableRow>
                                 <TableCell>key</TableCell>
                                 <TableCell>value</TableCell>
+                                <TableCell>transactionId</TableCell>
+                                <TableCell>operation</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -86,10 +113,14 @@ export default function SampleData() {
                                     key={row.key}
                                     sx={{'&:last-child td, &:last-child th': {border: 0}}}
                                 >
-                                    <TableCell component="th" scope="row" key={row.key}>
+                                    <TableCell component="th" scope="row" key={`${row.key}-key`}>
                                         {row.key}
                                     </TableCell>
-                                    <TableCell align="right" key={row.value}>{row.value}</TableCell>
+                                    <TableCell align="center" key={row.value}>{row.value}</TableCell>
+                                    <TableCell align="center" key={row.transactionId}>{row.transactionId}</TableCell>
+                                    <TableCell>
+                                        <Button variant="outlined" onClick={() => {delData(row.value)}}>Del</Button>
+                                    </TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>

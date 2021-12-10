@@ -24,6 +24,7 @@ type storage struct {
 	WALLocation          string `toml:"WALLocation"`
 	LSMIndexLocation     string `toml:"LSMIndexLocation"`
 	Engine               string `toml:"engine"`
+	MajorCompactionFileSize int `toml:"MajorCompactionFileSize"`
 }
 
 var conf *TomlConfig

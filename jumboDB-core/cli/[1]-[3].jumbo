@@ -1,4 +1,3 @@
-{"key":"abd","value":"asdf","operation":"PUT","transactionId":0}
 {"key":"abd","value":"sdsf","operation":"PUT","transactionId":1}
 {"key":"abds","value":"sdsf","operation":"PUT","transactionId":2}
 {"key":"asdfasdf","value":"sdsfd","operation":"PUT","transactionId":3}
@@ -7,7 +6,3 @@
 {"key":"hello1","value":"world1","operation":"PUT","transactionId":6}
 {"key":"hello2","value":"worl2","operation":"PUT","transactionId":7}
 {"key":"hello3","value":"world3","operation":"PUT","transactionId":8}
-{"key":"sdsf","value":"","operation":"DEL","transactionId":14}
-{"key":"sdsf","value":"","operation":"DEL","transactionId":15}
-{"key":"sdsf","value":"","operation":"DEL","transactionId":16}
-{"key":"world3","value":"","operation":"DEL","transactionId":17}
