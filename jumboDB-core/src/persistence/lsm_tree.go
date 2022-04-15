@@ -123,8 +123,10 @@ func (i *LSMTree) Get(key string) string{
 	if err != nil {
 		log.Printf("Error in lsmtree get for key [%s] with error [%s]\n", key, err)
 	}
+
 	if value == nil {
 		// immutable memtable is not release yet
+		log.Printf("Error in lsmtree get for key [%s] did not exist in memtable\n", key)
 		if i.ImmutableMemtable != nil {
 			value, err = i.ImmutableMemtable.Get(key, transactionId)
 			if err != nil {

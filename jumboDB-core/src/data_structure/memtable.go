@@ -60,14 +60,16 @@ func (i *Memtable) Put(key string, value string, transactionId int) {
 func (i *Memtable) Get(key string, transactionId int) (*Operation, error){
 	if i.BloomFilter.Test([]byte(key)) {
 		opt, err := i.Data.Get(key)
-		if opt.TransactionId > transactionId {
-			return nil, nil
-		}
 		if err != nil {
 			return nil, errors.New("error in get from memtable")
 		}
+		if opt.TransactionId > transactionId {
+			log.Printf("tx: r/w conflict")
+			return nil, nil
+		}
 		return opt, nil
 	}
+	log.Printf("key not exist in bf")
 	return nil, nil
 }
 
@@ -107,5 +109,6 @@ func (i *Memtable) GetAll() []protocol.Payload {
 
 func (i *Memtable) Del(key string, transactionId int) {
 	i.Data.Del(key, transactionId)
+	i.BloomFilter.Add([]byte(key))
 	i.WriteWAL(NewOperation(key, "", DEL, transactionId))
 }

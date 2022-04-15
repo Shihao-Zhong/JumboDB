@@ -1,1 +1,1 @@
-{"totalLevel":0,"data":[[{"filePath":"[0]-[4].jumbo","bloomFilterIndex":{"m":22,"k":6,"b":"AAAAAAAAABYAAAAAAAAAAA=="}}],[{"filePath":"[1]-[3].jumbo","bloomFilterIndex":{"m":66,"k":6,"b":"AAAAAAAAAEJI3Cso24HSVQAAAAAAAAAB"}}]],"sequence":5}
+{"totalLevel":0,"data":[[{"filePath":"[0]-[2].jumbo","bloomFilterIndex":{"m":22,"k":6,"b":"AAAAAAAAABYAAAAAAAiqCA=="}},{"filePath":"[0]-[1].jumbo","bloomFilterIndex":{"m":22,"k":6,"b":"AAAAAAAAABYAAAAAAC44Cg=="}},{"filePath":"[0]-[0].jumbo","bloomFilterIndex":{"m":22,"k":6,"b":"AAAAAAAAABYAAAAAAB_u2A=="}}]],"sequence":4}
